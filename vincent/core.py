@@ -28,9 +28,9 @@ def initialize_notebook():
     except ImportError:
         print('IPython Notebook could not be loaded.')
 
-    display(JavaScript(filename="js/d3.min.js"))
-    display(JavaScript(filename="js/vega.min.js"))
-    display(JavaScript('$([IPython.events]).trigger("vega_loaded.vincent")'))
+    display(Javascript(filename="js/d3.min.js"))
+    display(Javascript(filename="js/vega.min.js"))
+    display(Javascript('$([IPython.events]).trigger("vega_loaded.vincent")'))
 
 
 def _assert_is_type(name, value, value_type):
