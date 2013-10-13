@@ -21,11 +21,6 @@ except ImportError:
 
 from ._compat import str_types
 
-#TODO: Keep local?
-d3_js_url = "http://d3js.org/d3.v3.min.js"
-vega_js_url = 'http://trifacta.github.com/vega/vega.js'
-
-
 def initialize_notebook():
     """Initialize the IPython notebook display elements"""
     try:
@@ -33,11 +28,9 @@ def initialize_notebook():
     except ImportError:
         print('IPython Notebook could not be loaded.')
 
-    display(Javascript('''$.getScript("%s", function() {
-        $.getScript("%s", function() {
-            $([IPython.events]).trigger("vega_loaded.vincent");
-        })
-    });''' % (d3_js_url, vega_js_url)))
+    display(JavaScript(filename="js/d3.min.js"))
+    display(JavaScript(filename="js/vega.min.js"))
+    display(JavaScript('$([IPython.events]).trigger("vega_loaded.vincent")'))
 
 
 def _assert_is_type(name, value, value_type):
