@@ -8,6 +8,7 @@ from __future__ import (print_function, division)
 import json
 from string import Template
 from pkg_resources import resource_string
+import os
 
 try:
     import pandas as pd
@@ -28,8 +29,8 @@ def initialize_notebook():
     except ImportError:
         print('IPython Notebook could not be loaded.')
 
-    display(Javascript(filename="js/d3.min.js"))
-    display(Javascript(filename="js/vega.min.js"))
+    display(Javascript(filename=os.path.join(os.path.dirname(__file__), 'js/d3.min.js')))
+    display(Javascript(filename=os.path.join(os.path.dirname(__file__), 'js/vega.min.js')))
     display(Javascript('$([IPython.events]).trigger("vega_loaded.vincent")'))
 
 
