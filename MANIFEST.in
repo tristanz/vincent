@@ -1,3 +1,2 @@
 include *.rst
-recursive-include vincent *.js
 recursive-include vincent *.html

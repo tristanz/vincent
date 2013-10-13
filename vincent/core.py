@@ -29,8 +29,8 @@ def initialize_notebook():
     except ImportError:
         print('IPython Notebook could not be loaded.')
 
-    display(Javascript(filename=os.path.join(os.path.dirname(__file__), 'js/d3.min.js')))
-    display(Javascript(filename=os.path.join(os.path.dirname(__file__), 'js/vega.min.js')))
+    display(Javascript(filename=os.path.join(os.path.dirname(__file__), 'd3.min.js')))
+    display(Javascript(filename=os.path.join(os.path.dirname(__file__), 'vega.min.js')))
     display(Javascript('$([IPython.events]).trigger("vega_loaded.vincent")'))
 
 
