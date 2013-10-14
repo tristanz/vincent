@@ -31,7 +31,7 @@ def initialize_notebook():
 
     display(Javascript(filename=os.path.join(os.path.dirname(__file__), 'd3.min.js')))
     display(Javascript(filename=os.path.join(os.path.dirname(__file__), 'topojson.js')))
-    display(Javascript(filename=os.path.join(os.path.dirname(__file__), 'd3.geo.projection.v8.min.js')))
+    display(Javascript(filename=os.path.join(os.path.dirname(__file__), 'd3.geo.projection.v0.min.js')))
     display(Javascript(filename=os.path.join(os.path.dirname(__file__), 'vega.min.js')))
     display(Javascript('$([IPython.events]).trigger("vega_loaded.vincent")'))
 
