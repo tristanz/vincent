@@ -9,6 +9,7 @@ import json
 from string import Template
 from pkg_resources import resource_string
 import os
+import codecs
 
 try:
     import pandas as pd
@@ -31,7 +32,9 @@ def initialize_notebook():
 
     display(Javascript(filename=os.path.join(os.path.dirname(__file__), 'd3.min.js')))
     display(Javascript(filename=os.path.join(os.path.dirname(__file__), 'topojson.js')))
-    display(Javascript(filename=os.path.join(os.path.dirname(__file__), 'd3.geo.projection.v0.min.js')))
+    # d3.geo.projection requires UTF8 encoding, which is not IPython's default.
+    script = codecs.open(os.path.join(os.path.dirname(__file__), 'd3.geo.projection.v0.min.js'), "r", "utf-8").read()
+    display(Javascript(script))
     display(Javascript(filename=os.path.join(os.path.dirname(__file__), 'vega.min.js')))
     display(Javascript('$([IPython.events]).trigger("vega_loaded.vincent")'))
 
