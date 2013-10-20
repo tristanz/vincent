@@ -30,12 +30,9 @@ def initialize_notebook():
     except ImportError:
         print('IPython Notebook could not be loaded.')
 
-    display(Javascript(filename=os.path.join(os.path.dirname(__file__), 'd3.min.js')))
-    display(Javascript(filename=os.path.join(os.path.dirname(__file__), 'topojson.js')))
-    # d3.geo.projection requires UTF8 encoding, which is not IPython's default.
-    script = codecs.open(os.path.join(os.path.dirname(__file__), 'd3.geo.projection.v0.min.js'), "r", "utf-8").read()
-    display(Javascript(script))
-    display(Javascript(filename=os.path.join(os.path.dirname(__file__), 'vega.min.js')))
+    resources = ['d3.min.js', 'topojson.js', 'd3.geo.projection.v0.min.js', 'vega.min.js']
+    for resource in resources
+        display(JavaScript(unicode(resource_string('vincent', resource))))
     display(Javascript('$([IPython.events]).trigger("vega_loaded.vincent")'))
 
 
