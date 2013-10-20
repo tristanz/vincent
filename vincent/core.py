@@ -31,7 +31,7 @@ def initialize_notebook():
         print('IPython Notebook could not be loaded.')
 
     resources = ['d3.min.js', 'topojson.js', 'd3.geo.projection.v0.min.js', 'vega.min.js']
-    for resource in resources
+    for resource in resources:
         display(JavaScript(unicode(resource_string('vincent', resource))))
     display(Javascript('$([IPython.events]).trigger("vega_loaded.vincent")'))
 
